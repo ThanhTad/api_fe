@@ -2,7 +2,7 @@ const jsonServer = require("json-server");
 const server = jsonServer.create();
 const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
-const queryString = require('query-string');
+const queryString = import('query-string').then((module) => module.default);
 
 // Set default middlewares (logger, static, cors and no-cache)
 server.use(middlewares);
